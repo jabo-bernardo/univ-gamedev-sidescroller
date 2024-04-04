@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +27,14 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         sentences.Clear();
+        Debug.Log(dialogue.name);
         GameManager.Instance.DisableUserActions();
         dialogueBoxAnimation.SetBool("isOpen", true);
         audioSource.PlayOneShot(dialogueSound);
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
+            Debug.Log(sentence);
         }
         DisplayNextSentence();
     }

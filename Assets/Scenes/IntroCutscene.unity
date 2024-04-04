@@ -811,7 +811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Bobo si Kristan
+  m_text: Booting up...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9bdef568a80c71a4587f2bc48c3e4bd6, type: 2}
   m_sharedMaterial: {fileID: -3000757129588403227, guid: 9bdef568a80c71a4587f2bc48c3e4bd6, type: 2}
