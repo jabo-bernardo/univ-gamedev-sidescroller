@@ -16,29 +16,30 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Stats")]
-	public float moveSpeed = 8.0f;
+    public float facingDirection = 1;
+    public float movementSpeed = 8.0f;
 	public float jumpForce = 8.0f;
-	public float dashForce = 16.0f;
 	public float allowedJumps = 2;
+	public float dashForce = 16.0f;
+	public float dashDuration = 1f;
+	public float dashCooldown = 6f;
+	public float defaultGravity = 1f;
 
 	[Header("Audios")]
 	public AudioClip walkAudio;
 	public AudioClip jumpAudio;
 	public AudioClip[] dashAudio;
 
-	[HideInInspector]
 	public int currentJumpCount = 0;
-    [HideInInspector]
-    public int currentDirection = 1;
-    [HideInInspector]
     public Vector2 movementVelocity;
-    [HideInInspector]
     public Vector2 dashVelocity;
 
 	private float timeBetweenFootsteps = 0.6f;
 	private float timeSinceLastFootstep;
 
-	private bool isDashAllowed = false;
+	private bool isDashing;
+	private bool isDashInCooldown;
+
 
     void Start()
 	{
@@ -51,20 +52,17 @@ public class PlayerMovement : MonoBehaviour
 	void Update()
 	{
 		if (GameManager.Instance.IsUserActionsDisabled()) return;
-        ProcessUserInputs();		
-		Movement();
+		HandleJumpControl();
+		if (Input.GetButtonDown("Dash") && !isDashInCooldown) {
+			StartCoroutine(PlayerDash());
+		}
 	}
 
-	void FixedUpdate() {
-		
-		rb.AddForce(dashVelocity);
-	}
+	void HandleHorizontalMovement()
+	{
+		float direction = Input.GetAxisRaw("Horizontal");
 
-	void ProcessUserInputs() {
-		Vector2 finalVelocity = new Vector2(rb.velocity.x, rb.velocity.y);
-		float xAxis = Input.GetAxis("Horizontal");
-
-		if (xAxis != 0)
+		if (direction != 0)
 		{
 			anim.SetBool("isWalking", true);
 			if (Time.time - timeSinceLastFootstep >= timeBetweenFootsteps)
@@ -77,47 +75,66 @@ public class PlayerMovement : MonoBehaviour
 			anim.SetBool("isWalking", false);
         }
 
-		if (xAxis < 0) {
-			sr.flipX = true;
-			currentDirection = -1;
-		} else if (xAxis > 0)
+		if (direction < 0)
 		{
-            currentDirection = 1;
-            sr.flipX = false;
+			facingDirection = -1;
+		} else if (direction > 0)
+		{
+			facingDirection = 1;
 		}
 
-		finalVelocity.x = xAxis * moveSpeed;
-	
-        if (Input.GetButtonDown("Jump") && currentJumpCount < allowedJumps)
+		if (facingDirection < 0)
+		{
+			transform.localScale = new Vector2(Math.Abs(transform.localScale.x) * -1, transform.localScale.y);
+		} else if (facingDirection > 0) { 
+			transform.localScale = new Vector2(Math.Abs(transform.localScale.x), transform.localScale.y);
+		}
+
+		if (!isDashing)
+		{
+			rb.velocity = new Vector2(direction * movementSpeed, rb.velocity.y);
+		}
+	}
+
+	void FixedUpdate() {
+		if (GameManager.Instance.IsUserActionsDisabled()) return;
+		HandleHorizontalMovement();
+	}
+
+	void HandleJumpControl() {
+		if (Input.GetButtonDown("Jump") && currentJumpCount < allowedJumps)
         {
-            finalVelocity.y = jumpForce + (jumpForce * currentJumpCount * 0.5f);
+            rb.velocity = Vector2.up * (jumpForce + (jumpForce * currentJumpCount * 0.5f));
             currentJumpCount++;
             audioSource.PlayOneShot(jumpAudio);
             anim.SetBool("isFalling", true);
         }
-
-		if (xAxis < -0.5f || xAxis > 0.5f || currentJumpCount > 0)
-		{
-			isDashAllowed = true;
-		}
-
-        if (Input.GetButtonDown("Dash") && isDashAllowed) {
-			StartCoroutine(PlayerDash());
-		}
-
-		movementVelocity = finalVelocity;
-	}
-
-	void Movement() {
-		rb.velocity = movementVelocity;
 	}
 
 	IEnumerator PlayerDash() {
-		dashVelocity = new Vector2((float) currentDirection * dashForce, movementVelocity.y * 2f);
+		isDashing = true;
+		isDashInCooldown = true;
+		rb.gravityScale = 0.0f;
+
+		if (facingDirection == 1)
+		{
+			rb.velocity = Vector2.right * dashForce;
+		} else if (facingDirection == -1)
+		{
+			rb.velocity = Vector2.left * dashForce;
+		}
+
+		Debug.Log(facingDirection);
+
 		audioSource.PlayOneShot(dashAudio[Random.Range(0, dashAudio.Length)]);
 
-		yield return new WaitForSeconds(0.25f);
+		yield return new WaitForSeconds(dashDuration);
 
-		dashVelocity = new Vector2();
+		isDashing = false;
+		rb.gravityScale = defaultGravity;
+
+		yield return new WaitForSeconds(dashCooldown);
+
+		isDashInCooldown = false;
 	}
 }

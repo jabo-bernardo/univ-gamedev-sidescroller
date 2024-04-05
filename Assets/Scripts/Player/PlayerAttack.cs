@@ -29,17 +29,6 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        // Check if mouse is on left side of player
-        if (lookAtMouse.angle.z > 90 || lookAtMouse.angle.z < -90)
-        {
-            playerMovement.currentDirection = -1;
-            playerMovement.sr.flipX = true;
-        }
-        else
-        {
-            playerMovement.currentDirection = 1;
-            playerMovement.sr.flipX = false;
-        }
         if (Input.GetMouseButtonDown(0) && !isPrimaryCooldown && !GameManager.Instance.IsUserActionsDisabled())
         {
             
@@ -52,9 +41,25 @@ public class PlayerAttack : MonoBehaviour
         isPrimaryCooldown = true;
         primaryAttackObject.SetActive(true);
 
+        Vector3 mouseScreenPos = Input.mousePosition;
+        Vector3 startingScreenPos = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().WorldToScreenPoint(gameObject.transform.position);
+        mouseScreenPos.x -= startingScreenPos.x;
+        mouseScreenPos.y -= startingScreenPos.y;
+        float initialAngle = Mathf.Atan2(mouseScreenPos.y, mouseScreenPos.x) * Mathf.Rad2Deg;
+        Vector3 angle = new Vector3(0, 0, initialAngle);
+
+        // Check if mouse is on left side of player
+        if (angle.z > 90 || angle.z < -90)
+        {
+            playerMovement.facingDirection = -1;
+        }
+        else
+        {
+            playerMovement.facingDirection = 1;
+        }
+
         GameObject slashEffect = Instantiate(primarySlashObject, transform);
-        slashEffect.GetComponent<SpriteRenderer>().flipX = playerMovement.currentDirection == 1 ? false : true;
-        slashEffect.transform.SetLocalPositionAndRotation(new Vector2(0.25f * playerMovement.currentDirection, -0.25f), transform.rotation);
+        slashEffect.transform.SetLocalPositionAndRotation(new Vector2(0.25f, -0.25f), transform.rotation);
 
         yield return new WaitForSeconds(primaryAttackCooldown);
 
