@@ -51,7 +51,11 @@ public class PlayerMovement : MonoBehaviour
 
 	void Update()
 	{
-		if (GameManager.Instance.IsUserActionsDisabled()) return;
+		if (GameManager.Instance.IsUserActionsDisabled())
+		{
+			rb.velocity = Vector2.zero;
+			return;
+		}
 		HandleJumpControl();
 		if (Input.GetButtonDown("Dash") && !isDashInCooldown) {
 			StartCoroutine(PlayerDash());
@@ -60,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
 	void HandleHorizontalMovement()
 	{
+		if (GameManager.Instance.IsUserActionsDisabled()) return;
 		float direction = Input.GetAxisRaw("Horizontal");
 
 		if (direction != 0)
@@ -97,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	void FixedUpdate() {
-		if (GameManager.Instance.IsUserActionsDisabled()) return;
 		HandleHorizontalMovement();
 	}
 

@@ -110,7 +110,7 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   cameraBoundsMin: {x: 0, y: 0}
   cameraBoundsMax: {x: 0, y: 0}
-  smoothScrollFactor: 0.5
+  smoothScrollFactor: 0.1
 --- !u!114 &5622443075471817755
 MonoBehaviour:
   m_ObjectHideFlags: 0
