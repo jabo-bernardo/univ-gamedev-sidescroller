@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
 		if (GameManager.Instance.IsUserActionsDisabled())
 		{
 			rb.velocity = Vector2.zero;
+			anim.SetBool("isWalking", false);
 			return;
 		}
 		HandleJumpControl();
