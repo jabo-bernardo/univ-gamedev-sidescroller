@@ -129,8 +129,6 @@ public class PlayerMovement : MonoBehaviour
 			rb.velocity = Vector2.left * dashForce;
 		}
 
-		Debug.Log(facingDirection);
-
 		audioSource.PlayOneShot(dashAudio[Random.Range(0, dashAudio.Length)]);
 
 		yield return new WaitForSeconds(dashDuration);

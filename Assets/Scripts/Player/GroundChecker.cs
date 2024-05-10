@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
-    public Animator anim;
+    private Player player;
+    private Animator animator;
 
-    void OnTriggerEnter2D(Collider2D collider) {
+    void Start() {
+        player = GetComponentInParent<Player>();
+        animator = GetComponentInParent<Animator>();
+    }
+
+    void OnTriggerStay2D(Collider2D collider) {
         if (!collider.CompareTag("Ground"))
             return;
-        playerMovement.currentJumpCount = 0;
-        anim.SetBool("isFalling", false);
+        Debug.Log("Resetting Jump due to: " + collider.gameObject.name);
+        player.ResetJumpCount();
+        animator.SetBool("isFalling", false);
     }
 }

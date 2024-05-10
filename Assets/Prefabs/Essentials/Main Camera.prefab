@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4619118838823850330}
   - component: {fileID: 5622443075471817755}
   - component: {fileID: 7122356888332211516}
+  - component: {fileID: 5769696224656415469}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -110,7 +111,12 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   cameraBoundsMin: {x: 0, y: 0}
   cameraBoundsMax: {x: 0, y: 0}
+  temporaryCameraBoundsMin: {x: 0, y: 0}
+  temporaryCameraBoundsMax: {x: 0, y: 0}
   smoothScrollFactor: 0.1
+  isCinematic: 0
+  isLocked: 0
+  cameraZoom: 38
 --- !u!114 &5622443075471817755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,3 +185,17 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &5769696224656415469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5876033784082205166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119aaa45565c24043801b0b7bd2671f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 0.05
+  shakeDuration: 0.1

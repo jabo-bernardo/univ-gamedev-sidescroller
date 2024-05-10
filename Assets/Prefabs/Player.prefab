@@ -156,11 +156,10 @@ GameObject:
   - component: {fileID: 2328996561495238197}
   - component: {fileID: 1558327516577664921}
   - component: {fileID: 550663156898488822}
-  - component: {fileID: 6248506888666403424}
   - component: {fileID: 6841398619475080585}
   - component: {fileID: 942382255162009760}
-  - component: {fileID: 8940215498114785149}
   - component: {fileID: 1886302444705506255}
+  - component: {fileID: 6607302053351843120}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -264,34 +263,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6248506888666403424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276909334858629936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4c0f3fd29b6b94e9c37e2fb7cfd754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sr: {fileID: 0}
-  facingDirection: 1
-  movementSpeed: 8
-  jumpForce: 6
-  allowedJumps: 2
-  dashForce: 512
-  dashDuration: 1
-  dashCooldown: 6
-  defaultGravity: 1
-  walkAudio: {fileID: 8300000, guid: a45a106021295a84e89d4578f86e1939, type: 3}
-  jumpAudio: {fileID: 8300000, guid: cf3491f1a75730241917a1dbf9d0303d, type: 3}
-  dashAudio:
-  - {fileID: 8300000, guid: 8d6447a88e851ae46b4ddcad7bc2ce7e, type: 3}
-  currentJumpCount: 0
-  movementVelocity: {x: 0, y: 0}
-  dashVelocity: {x: 0, y: 0}
 --- !u!95 &6841398619475080585
 Animator:
   serializedVersion: 5
@@ -348,24 +319,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.18757078}
   m_Size: {x: 0.2202943, y: 0.5807242}
   m_Direction: 0
---- !u!114 &8940215498114785149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276909334858629936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7bf5028320bc8d418efa891bd8b7362, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primaryAttackObject: {fileID: 2716451421512796630}
-  primaryAttackCooldown: 0.25
-  primarySlashObject: {fileID: 8557450641946862213, guid: 1dabc12e6288a6043a9b07454bffe982, type: 3}
-  primaryAttackEffect: {fileID: 0}
-  primaryAttackEffectVariations: 3
-  lookAtMouse: {fileID: 2860320665788554387}
 --- !u!82 &1886302444705506255
 AudioSource:
   m_ObjectHideFlags: 0
@@ -462,6 +415,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6607302053351843120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276909334858629936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4054a618fcfc79042bf63efc2aea3690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingDirection: 1
+  movementSpeed: 4
+  jumpForce: 6
+  allowedJumps: 2
+  dashForce: 25
+  dashDuration: 0.15
+  dashCooldown: 0.5
+  defaultGravity: 2
+  primaryAttackObject: {fileID: 2716451421512796630}
+  secondaryAttackObject: {fileID: 0}
+  primaryAttackCooldown: 0.25
+  secondaryAttackCooldown: 2
+  primarySlashObject: {fileID: 8557450641946862213, guid: 1dabc12e6288a6043a9b07454bffe982, type: 3}
+  walkAudio: {fileID: 8300000, guid: a45a106021295a84e89d4578f86e1939, type: 3}
+  jumpAudio: {fileID: 8300000, guid: cf3491f1a75730241917a1dbf9d0303d, type: 3}
+  dashAudio:
+  - {fileID: 8300000, guid: 8d6447a88e851ae46b4ddcad7bc2ce7e, type: 3}
 --- !u!1 &7718271833951177095
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,8 +534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45ac2ce25384044cae1c16bf307b670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 6248506888666403424}
-  anim: {fileID: 6841398619475080585}
 --- !u!1 &9168188225588535436
 GameObject:
   m_ObjectHideFlags: 0
