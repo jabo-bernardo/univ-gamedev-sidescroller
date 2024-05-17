@@ -77,6 +77,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +90,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -210,6 +212,7 @@ ScriptedImporter:
     cells:
     - name: small_slash_3_Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 40
@@ -218,6 +221,7 @@ ScriptedImporter:
       spriteId: e2581b59819e58f46b5ade6ba2c9b333
     - name: small_slash_3_Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 7
@@ -226,6 +230,7 @@ ScriptedImporter:
       spriteId: 4fb690153ab5748498a42af0e3bd9d93
     - name: small_slash_3_Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 21
         y: 2
@@ -234,6 +239,7 @@ ScriptedImporter:
       spriteId: 310be52bdad426543b994ead801ab85a
     - name: small_slash_3_Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 0
@@ -303,6 +309,7 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 88, y: 45}

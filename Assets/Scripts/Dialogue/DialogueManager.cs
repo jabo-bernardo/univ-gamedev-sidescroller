@@ -17,26 +17,29 @@ public class DialogueManager : MonoBehaviour
     [Header("Audios")]
     public AudioClip dialogueSound;
 
+    public delegate void DialogueCompleteCallback();
+
+    private DialogueCompleteCallback dialogueCompleteCallback;
 
     void Start()
     {
         sentences = new Queue<string>();
         audioSource = GetComponent<AudioSource>();
+        
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, DialogueCompleteCallback callback = null)
     {
         sentences.Clear();
-        Debug.Log(dialogue.name);
         GameManager.Instance.DisableUserActions();
         dialogueBoxAnimation.SetBool("isOpen", true);
         audioSource.PlayOneShot(dialogueSound);
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
-            Debug.Log(sentence);
         }
         DisplayNextSentence();
+        this.dialogueCompleteCallback = callback;
     }
 
     public void DisplayNextSentence()
@@ -70,5 +73,9 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear();
         GameManager.Instance.EnableUserActions();
         audioSource.PlayOneShot(dialogueSound);
+        if (dialogueCompleteCallback != null)
+        {
+            dialogueCompleteCallback();
+        }
     }
 }

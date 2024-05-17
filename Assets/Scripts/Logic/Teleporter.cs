@@ -11,7 +11,6 @@ public class Teleporter : MonoBehaviour
     {
         if (teleporterCheckpoint == null) return;
         if (!collision.gameObject.CompareTag(targetTag)) return;
-        Debug.Log("Teleported");
         collision.gameObject.transform.SetPositionAndRotation(teleporterCheckpoint.position, Quaternion.identity);
     }
 }

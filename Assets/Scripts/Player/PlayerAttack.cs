@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -19,12 +18,12 @@ public class PlayerAttack : MonoBehaviour
     private bool isPrimaryCooldown;
     // private bool isSecondaryCooldown;
 
-    private PlayerMovement playerMovement;
+    private Player player;
     public LookAtMouse lookAtMouse;
 
     private void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        player = GetComponent<Player>();
     }
 
     void Update()
@@ -51,11 +50,11 @@ public class PlayerAttack : MonoBehaviour
         // Check if mouse is on left side of player
         if (angle.z > 90 || angle.z < -90)
         {
-            playerMovement.facingDirection = -1;
+            player.SetFacingDirection(-1);
         }
         else
         {
-            playerMovement.facingDirection = 1;
+            player.SetFacingDirection(1);
         }
 
         GameObject slashEffect = Instantiate(primarySlashObject, transform);
