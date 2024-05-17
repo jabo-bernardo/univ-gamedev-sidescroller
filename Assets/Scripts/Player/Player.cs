@@ -73,6 +73,12 @@ public class Player : MonoBehaviour
 			Destroy(gameObject);
 		}
 
+		bool SHOULD_DRINK_BEER = Input.GetKeyUp(KeyCode.Q) && GameManager.Instance.GetBeerCount() > 0;
+		if (SHOULD_DRINK_BEER) {
+			GameManager.Instance.ConsumeBeer();
+			GameManager.Instance.SetPlayerMaxHealth(GameManager.Instance.GetPlayerMaxHealth() * 1.25f);
+		}
+
 		HandlePlayerAttacks();
 		HandlePlayerControls();
 	}
@@ -94,6 +100,11 @@ public class Player : MonoBehaviour
 		bool IS_ALLOWED_TO_PRIMARY_ATTACK = Input.GetMouseButtonDown(0) && !isPrimaryCooldown;
 		if (IS_ALLOWED_TO_PRIMARY_ATTACK) {
 			StartCoroutine(PrimaryAttack());
+		}
+
+		bool IS_ALLOWED_TO_SECONDARY_ATTACK = Input.GetMouseButtonDown(1) && !isSecondaryCooldown;
+		if (IS_ALLOWED_TO_SECONDARY_ATTACK) {
+			StartCoroutine(SecondaryAttack());
 		}
 	}
 
@@ -118,7 +129,6 @@ public class Player : MonoBehaviour
 
 		bool IS_ALLOWED_TO_JUMP = Input.GetButtonDown("Jump") && currentJumpCount <= (allowedJumps - 2);
 		if (IS_ALLOWED_TO_JUMP) {
-			Debug.Log("Bitch is jumping");
 			HandleJumpControl();
 		}
 	}
@@ -175,8 +185,7 @@ public class Player : MonoBehaviour
 	}
 
 	void HandleJumpControl() {
-		rigidBody.velocity = Vector2.up * (jumpForce + (jumpForce * currentJumpCount * 0.8f));
-		Debug.Log(currentJumpCount);
+		rigidBody.velocity = Vector2.up * (jumpForce + (jumpForce * currentJumpCount * 1.2f));
 		currentJumpCount = currentJumpCount + 1;
 		audioSource.PlayOneShot(jumpAudio);
 		animator.SetBool("isFalling", true);
@@ -231,12 +240,47 @@ public class Player : MonoBehaviour
 
         GameObject slashEffect = Instantiate(primarySlashObject, transform);
         slashEffect.transform.SetLocalPositionAndRotation(new Vector2(0.25f, -0.25f), transform.rotation);
-
-        yield return new WaitForSeconds(primaryAttackCooldown);
+        yield return new WaitForSeconds(0.1f);
 
         primaryAttackObject.SetActive(false);
+        yield return new WaitForSeconds(primaryAttackCooldown);
+
         isPrimaryCooldown = false;
     }
+
+		IEnumerator SecondaryAttack()
+    {
+        isSecondaryCooldown = true;
+        secondaryAttackObject.SetActive(true);
+
+        Vector3 mouseScreenPos = Input.mousePosition;
+        Vector3 startingScreenPos = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().WorldToScreenPoint(gameObject.transform.position);
+        mouseScreenPos.x -= startingScreenPos.x;
+        mouseScreenPos.y -= startingScreenPos.y;
+        float initialAngle = Mathf.Atan2(mouseScreenPos.y, mouseScreenPos.x) * Mathf.Rad2Deg;
+        Vector3 angle = new Vector3(0, 0, initialAngle);
+
+        // Check if mouse is on left side of player
+        if (angle.z > 90 || angle.z < -90)
+        {
+            SetFacingDirection(-1);
+        }
+        else
+        {
+            SetFacingDirection(1);
+        }
+
+        GameObject slashEffect = Instantiate(primarySlashObject, transform);
+        slashEffect.transform.SetLocalPositionAndRotation(new Vector2(0.25f, -0.25f), transform.rotation);
+
+        yield return new WaitForSeconds(0.1f);
+
+        secondaryAttackObject.SetActive(false);
+        yield return new WaitForSeconds(secondaryAttackCooldown);
+
+        isSecondaryCooldown = false;
+    }
+
 
 	public Player ResetJumpCount() {
 		currentJumpCount = 0;
@@ -252,5 +296,13 @@ public class Player : MonoBehaviour
 		GameManager.Instance.SetPlayerHealth(GameManager.Instance.GetPlayerHealth() - damage);
 		GameObject.Find("MainCamera").GetComponent<CameraShake>().StartShake();
 		return this;
+	}
+
+	public bool GetIsPrimaryCooldown() {
+		return isPrimaryCooldown;
+	}
+
+	public bool GetIsSecondaryCooldown() {
+		return isSecondaryCooldown;
 	}
 }

@@ -175,6 +175,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 500
   bloodParticleSystem: {fileID: 234394547716984243, guid: f1e97d908b44f0d4dbc8d09d2d736b8a, type: 3}
+  pearl: {fileID: 7582147654368065911, guid: 324b576b067e8ba48870f97f43661cc4, type: 3}
+  pearlCount: 3
 --- !u!114 &2908694844216105839
 MonoBehaviour:
   m_ObjectHideFlags: 0

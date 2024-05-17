@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 222691107428334212}
   - component: {fileID: 1683675779797737132}
   - component: {fileID: 4119591437077828718}
+  - component: {fileID: 6391808359386673292}
+  - component: {fileID: 2232496608641075976}
   m_Layer: 15
   m_Name: Spider
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.24, y: -2, z: -0.068796724}
-  m_LocalScale: {x: 1.7251, y: 1.44, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ce96aa6462620e47ac56eccbb027deb, type: 3}
+  m_Sprite: {fileID: -1537460047, guid: e22a1a5049f3ea84c810146de28d46ed, type: 3}
   m_Color: {r: 1, g: 0.9488252, b: 0.9292453, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,18 +123,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.109654665, y: -0.09398863}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.5313325, y: 0.68797725}
   m_EdgeRadius: 0
 --- !u!50 &8782518034384916138
 Rigidbody2D:
@@ -175,6 +177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   bloodParticleSystem: {fileID: 234394547716984243, guid: f1e97d908b44f0d4dbc8d09d2d736b8a, type: 3}
+  animator: {fileID: 0}
+  pearl: {fileID: 7582147654368065911, guid: 324b576b067e8ba48870f97f43661cc4, type: 3}
+  pearlCount: 3
 --- !u!114 &1683675779797737132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +211,36 @@ MonoBehaviour:
   attackRange: 1
   damage: 10
   slashEffectObject: {fileID: 8557450641946862213, guid: 1dabc12e6288a6043a9b07454bffe982, type: 3}
+--- !u!114 &6391808359386673292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055385175026407001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c36318e03ddaa6498ab1efe7d9328f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2232496608641075976
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055385175026407001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aee80ed28d252c54cbeda678fb8630a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     private float playerCritChance = 0.0f;
     private float playerBaseDamage = 15f;
 
+    // Player Items
+    private int beerCount = 0;
+
     private bool isUserActionsDisabled;
 
     // Cave Logic
@@ -34,6 +37,29 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, int> killTracker = new Dictionary<string, int>();
 
     public Dictionary<string, bool> yoloTracker = new Dictionary<string, bool>();
+
+    private bool isGamePaused = false;
+
+    void Update() {
+        GameObject inGameUi = GameObject.Find("InGameUi");
+        GameObject pauseMenu = null;
+
+        if (inGameUi) {
+            pauseMenu = inGameUi.transform.GetChild(1).gameObject;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            isGamePaused = !isGamePaused;
+        }
+
+        if (isGamePaused) {
+            Time.timeScale = 0;
+            if (pauseMenu) pauseMenu.SetActive(true);
+        } else {
+            Time.timeScale = 1;
+             if (pauseMenu)  pauseMenu.SetActive(false);
+        }
+    }
 
     public void DisableUserActions()
     {
@@ -86,7 +112,7 @@ public class GameManager : MonoBehaviour
     }
 
     public GameManager SetPlayerHealth(float health) {
-        playerHealth = health;
+        playerHealth = Mathf.Min(health, playerMaxHealth);
         return GameManager.Instance;
     }
 
@@ -117,6 +143,21 @@ public class GameManager : MonoBehaviour
 
     public GameManager SetCastleKeyLocation(int _castleKeyLocation) {
         castleKeyLocation = _castleKeyLocation;
+        return GameManager.Instance;
+    }
+
+    public GameManager IncreaseBeerCount(int _beerCount = 1) {
+        beerCount += _beerCount;
+        return GameManager.Instance;
+    }
+
+    public GameManager ConsumeBeer(int _beerToConsume = 1) {
+        beerCount -= _beerToConsume;
+        return GameManager.Instance;
+    }
+
+    public GameManager SetIsGamePaused(bool _gamePaused) {
+        isGamePaused = _gamePaused;
         return GameManager.Instance;
     }
 
@@ -176,6 +217,14 @@ public class GameManager : MonoBehaviour
         return castleKeyLocation;
     }
 
+    public int GetBeerCount() {
+        return beerCount;
+    }
+
+    public bool GetIsGamePaused() {
+        return isGamePaused;
+    }
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -185,7 +234,15 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
-            SetCastleKeyLocation(Random.Range(1, 3)); 
+            int randomNumber = Random.Range(1, 3);
+            SetCastleKeyLocation(randomNumber); 
+            if (randomNumber == 2) {
+                int decider = Random.Range(1, 10);
+                if (decider < 2) 
+                    randomNumber = Random.Range(1, 3);
+            }
+            SetCastleKeyLocation(randomNumber); 
+
             DontDestroyOnLoad(gameObject);
         }
     }

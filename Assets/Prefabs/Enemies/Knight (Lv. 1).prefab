@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6306289792850138195}
   - component: {fileID: 1025335926398719305}
   - component: {fileID: 4650045409675894887}
+  - component: {fileID: 4115969008071531198}
   m_Layer: 15
   m_Name: Knight (Lv. 1)
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.43, y: -0.29, z: -0.068796724}
-  m_LocalScale: {x: 1.7251, y: 3.2384, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ce96aa6462620e47ac56eccbb027deb, type: 3}
-  m_Color: {r: 0.504717, g: 0.882207, b: 1, a: 1}
+  m_Sprite: {fileID: 8666494117359046356, guid: 73352b5de1e078e469e8bf145434d148, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -121,18 +122,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.16813976, y: -0.004203558}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.3486725, y: 0.86149967}
   m_EdgeRadius: 0
 --- !u!50 &9097025455459103813
 Rigidbody2D:
@@ -173,8 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0959be166c236545b04d4de9c2f8870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 150
   bloodParticleSystem: {fileID: 234394547716984243, guid: f1e97d908b44f0d4dbc8d09d2d736b8a, type: 3}
+  animator: {fileID: 0}
+  pearl: {fileID: 7582147654368065911, guid: 324b576b067e8ba48870f97f43661cc4, type: 3}
+  pearlCount: 3
 --- !u!114 &1025335926398719305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +206,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a53ddff21416484eb3c8fd5d9dd5a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.5
-  attackRange: 3
-  damage: 25
+  attackSpeed: 1.5
+  attackRange: 2
+  damage: 20
   slashEffectObject: {fileID: 8557450641946862213, guid: 1dabc12e6288a6043a9b07454bffe982, type: 3}
+--- !u!95 &4115969008071531198
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5417848168879957179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84af2d8cd5c386e4f8fbabf5bee72a49, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

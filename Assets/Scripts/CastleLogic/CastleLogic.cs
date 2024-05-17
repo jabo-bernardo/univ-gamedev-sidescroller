@@ -6,6 +6,8 @@ public class CastleLogic : MonoBehaviour
 {
     public GameObject[] enemiesToKill;
     public GameObject portalDoor;
+    public SpriteRenderer castleDoor;
+    public Sprite castleDoorOpened;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +21,7 @@ public class CastleLogic : MonoBehaviour
             portalDoor.SetActive(false);
             return;
         }
+        castleDoor.sprite = castleDoorOpened;
         portalDoor.SetActive(true);
     }
 }

@@ -36,8 +36,13 @@ public class BossEnemyHunt : EnemyHuntBase
             else if (enemy.GetDirection() > 0) transform.localScale = new Vector2(Mathf.Abs(transform.localScale.x), transform.localScale.y);
         }
 
+        if (enemy.GetIsAttacking()) {
+            enemy.animator.SetBool("isWalking", false);
+        }
+
         if (enemy.GetShouldHunt() && !enemy.GetIsAttacking()) {
             rigidBody.velocity = new Vector2(enemy.GetDirection() * movementSpeed, rigidBody.velocity.y);
+            enemy.animator.SetBool("isWalking", true);
         }
 
     }

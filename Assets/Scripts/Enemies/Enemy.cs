@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -14,9 +12,18 @@ public class Enemy : MonoBehaviour
 
     public GameObject bloodParticleSystem;
     private Rigidbody2D rb;
+    public Animator animator;
+
+    [Header("Rewards")]
+    public GameObject pearl;
+    public int pearlCount = 3;
+
+    private bool isDying;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        pearlCount = (int) Mathf.Round(health / 50);
+        animator = GetComponent<Animator>();
     }
 
     void Update() {
@@ -26,18 +33,36 @@ public class Enemy : MonoBehaviour
             } else {
                 GameManager.Instance.killTracker[gameObject.name] = 1;
             }
-            Destroy(gameObject);
+            StartCoroutine(KillMeAlready());           
         }
     }
 
-    void OnTriggerExit2D(Collider2D collider) {
+    IEnumerator KillMeAlready() {
+        if (isDying) yield return null;
+        isDying = true;
+
+        bool SHOULD_DROP_PEARL = Random.Range(0, 10) <= 5;
+        if (pearlCount > 0 && pearl && SHOULD_DROP_PEARL) {
+            for (int x = 0; x < pearlCount; x++) {
+                Instantiate(pearl, transform.position, Quaternion.identity);
+            }
+        }
+        Destroy(gameObject);
+        yield return null;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.CompareTag("AttackHit")) {
             TakeDamage(GameManager.Instance.GetPlayerBaseDamage(), collider.gameObject);
+        }
+        if (collider.gameObject.CompareTag("AttackHitMace")) {
+            TakeDamage(GameManager.Instance.GetPlayerBaseDamage() * 2.0f, collider.gameObject);
         }
     }
 
     public Enemy TakeDamage(float damage, GameObject damageDealer = null) {
         health -= damage;
+        animator.SetTrigger("isHit");
         if (damageDealer) {
             Instantiate(bloodParticleSystem, transform.position, Quaternion.identity);
             rb.AddForce(new Vector2((transform.position.x - damageDealer.transform.position.x) * 180f, 128f));

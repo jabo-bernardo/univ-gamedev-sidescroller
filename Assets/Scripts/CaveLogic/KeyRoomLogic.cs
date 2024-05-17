@@ -10,12 +10,8 @@ public class KeyRoomLogic : MonoBehaviour
     public DialogueTrigger hasKeyDialogue;
     public bool hasTriggered;
 
-    void Start() {
-        
-    }
-
     void Update() {
-        if (hasTriggered) return;
+        if (hasTriggered || GameManager.Instance.GetHasCastleKey()) return;
         if (GameManager.Instance.GetCastleKeyLocation() == roomLevel) {
             hasKeyDialogue.TriggerDialogue();
             hasTriggered = true;

@@ -12,7 +12,6 @@ public class PlaygroundLogic : MonoBehaviour
 
     void Update()
     {
-        return;
         int banditsKilled = GameManager.Instance.killTracker.ContainsKey("Bandit(Clone)") ? GameManager.Instance.killTracker["Bandit(Clone)"] : 0;
 
         bool TAVERN_ACTORS_KILLED = banditsKilled >= 2;
@@ -31,8 +30,7 @@ public class PlaygroundLogic : MonoBehaviour
             camFollow.temporaryCameraBoundsMax = cameraBoundsMax;
         }
         
-        bool HAS_ALL_KEYS_FOR_CASTLE = GameManager.Instance.GetHasFirstKey() && GameManager.Instance.GetHasSecondKey() && GameManager.Instance.GetHasThirdKey();
-        if (HAS_ALL_KEYS_FOR_CASTLE) {
+        if (GameManager.Instance.GetHasCastleKey()) {
             castleBarrier.SetActive(false);
         }
     }

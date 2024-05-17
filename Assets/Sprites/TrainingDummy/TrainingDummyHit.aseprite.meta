@@ -77,6 +77,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -89,6 +90,7 @@ ScriptedImporter:
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
     generateAnimationClips: 1
@@ -230,6 +232,7 @@ ScriptedImporter:
     cells:
     - name: TrainingDummyHit_Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 0
@@ -238,6 +241,7 @@ ScriptedImporter:
       spriteId: f40192251b2e7504d8858d55077fb284
     - name: TrainingDummyHit_Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 25
         y: -1
@@ -246,6 +250,7 @@ ScriptedImporter:
       spriteId: 05ff9a735debc5447a58664569e2f1d4
     - name: TrainingDummyHit_Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 0
@@ -254,6 +259,7 @@ ScriptedImporter:
       spriteId: ef1ec5f0cf7efc948a70fca8bab7b200
     - name: TrainingDummyHit_Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 16
         y: 0
@@ -262,6 +268,7 @@ ScriptedImporter:
       spriteId: 91023f8f3dd1c9e4b9f77501d533c3c4
     - name: TrainingDummyHit_Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 19
         y: 0
@@ -331,6 +338,7 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 64, y: 64}
