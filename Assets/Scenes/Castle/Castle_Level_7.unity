@@ -3961,6 +3961,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3194135510196428243, guid: 0b6a36c7f91eeba489d97936014c36ab, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 796c22ea4f1f40a4b938440ee9a0a62c, type: 3}
     - target: {fileID: 5104518765272351052, guid: 0b6a36c7f91eeba489d97936014c36ab, type: 3}
       propertyPath: m_Name
       value: MusicManager
@@ -4172,49 +4176,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 296471142004114802, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1990651797, guid: 53f02f640b432c640be230d0b01e5825, type: 3}
-    - target: {fileID: 296471142004114802, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 296471142004114802, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 296471142004114802, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 944046893315611803, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263059848649485921, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Size.x
-      value: 0.21728458
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263059848649485921, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Size.y
-      value: 0.7400414
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263059848649485921, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.018669896
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263059848649485921, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.12002073
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263059848649485921, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263059848649485921, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6783482599154904923, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
       propertyPath: m_LocalScale.x
@@ -4271,10 +4235,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 944046893315611803, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2090496170}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
 --- !u!1 &1538422184
 GameObject:
@@ -4649,32 +4610,6 @@ Transform:
   - {fileID: 701409447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2090496162 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 944046893315611803, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
-  m_PrefabInstance: {fileID: 1456667551}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2090496170
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090496162}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6eefbd0c65ae0694dac45141d676fb1c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

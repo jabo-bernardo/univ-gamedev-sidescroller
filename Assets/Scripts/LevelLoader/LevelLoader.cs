@@ -4,14 +4,24 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof (AudioSource))]
 public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
     public float transitionTime = 1f;
+    private AudioSource audioSource;
+    private bool isSceneLoading;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public IEnumerator LoadLevel(string sceneName) {
+        if (isSceneLoading) yield return null;
         transition.SetTrigger("Start");
         Debug.Log("Loading Scene " + sceneName);
+        isSceneLoading = true;
+             
 
         GameObject player = GameObject.Find("Player");
         GameManager gm = GameManager.Instance;
@@ -22,9 +32,11 @@ public class LevelLoader : MonoBehaviour
             gm.playerSavedLocationsBeforeTeleport.Add(currentScenename, player.transform.position);
         }
 
+        audioSource.Play();
       
 
         yield return new WaitForSeconds(transitionTime);
+           
 
         SceneManager.LoadScene(sceneName);
         if (player) {
@@ -33,6 +45,7 @@ public class LevelLoader : MonoBehaviour
                 newPlayerLoaded.transform.position = gm.playerSavedLocationsBeforeTeleport.GetValueOrDefault(sceneName);
             }
         }
+        isSceneLoading = false;
     }
 
     public IEnumerator LoadLevelByIndex(int index) {
