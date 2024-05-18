@@ -19,10 +19,11 @@ public class TrainingDummy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (!collider.CompareTag("AttackHit"))
-            return;
-        if (ps) ps.Play();
-        anim.SetTrigger("isHit");
-        audioSource.PlayOneShot(dummyHitSound);
+        if (collider.CompareTag("AttackHit") || collider.CompareTag("AttackHitMace")) {
+            if (ps) ps.Play();
+            anim.SetTrigger("isHit");
+            audioSource.PlayOneShot(dummyHitSound);
+        }
+        
     }
 }
