@@ -8,6 +8,7 @@ TagManager:
   - AttackHit
   - AttackHitMace
   - PauseMenu
+  - TavernActors
   layers:
   - Default
   - TransparentFX

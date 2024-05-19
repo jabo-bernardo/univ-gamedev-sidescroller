@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof (AudioSource))]
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Stats")]
@@ -13,17 +14,21 @@ public class Enemy : MonoBehaviour
     public GameObject bloodParticleSystem;
     private Rigidbody2D rb;
     public Animator animator;
+    private AudioSource audioSource;
 
     [Header("Rewards")]
     public GameObject pearl;
     public int pearlCount = 3;
 
+    [Header("Sound")]
+    public  AudioClip[] hitSound;
     private bool isDying;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         pearlCount = (int) Mathf.Round(health / 50);
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -63,6 +68,10 @@ public class Enemy : MonoBehaviour
     public Enemy TakeDamage(float damage, GameObject damageDealer = null) {
         health -= damage;
         animator.SetTrigger("isHit");
+        int randomHitSound = Random.Range(0, hitSound.Length);
+        Debug.Log(randomHitSound);
+        if (hitSound[randomHitSound])
+            audioSource.PlayOneShot(hitSound[randomHitSound]);
         if (damageDealer) {
             Instantiate(bloodParticleSystem, transform.position, Quaternion.identity);
             rb.AddForce(new Vector2((transform.position.x - damageDealer.transform.position.x) * 180f, 128f));
