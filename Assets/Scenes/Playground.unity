@@ -4351,7 +4351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5243224413639473500, guid: 06e4a29e823e32d4fae97a246bfa5f57, type: 3}
       propertyPath: orthographic size
-      value: 4.6842103
+      value: 3.3947368
       objectReference: {fileID: 0}
     - target: {fileID: 5243224413639473500, guid: 06e4a29e823e32d4fae97a246bfa5f57, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -4877,7 +4877,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4759857558059605701, guid: 1229c1219a470584595651b023c13b41, type: 3}
       propertyPath: m_Name
-      value: Beer (1)
+      value: BeerNearCastle
       objectReference: {fileID: 0}
     - target: {fileID: 8130088141594221840, guid: 1229c1219a470584595651b023c13b41, type: 3}
       propertyPath: m_LocalScale.x
@@ -5159,6 +5159,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3513980038739591613, guid: ee45cf4aa785fe542b7330546ccdbe4a, type: 3}
   m_PrefabInstance: {fileID: 841078352}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &450790980 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8130088141594221840, guid: 1229c1219a470584595651b023c13b41, type: 3}
+  m_PrefabInstance: {fileID: 1705499350}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &455694681
 GameObject:
@@ -8165,63 +8170,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8712753543214483781, guid: 5e2b44c79dded3a4183ab2dd748101f3, type: 3}
   m_PrefabInstance: {fileID: 113965888}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1171245091
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 30.869461
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.084352
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.068796724
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2915270931097353093, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7872945324321984855, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
-      propertyPath: m_Name
-      value: Bandit
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 17bf664f9b3829945a6f77db0ce262f9, type: 3}
 --- !u!1001 &1193194964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8308,7 +8256,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1719309127}
+  - {fileID: 450790980}
   - {fileID: 369669460}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10940,12 +10888,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3513980038739591613, guid: ee45cf4aa785fe542b7330546ccdbe4a, type: 3}
   m_PrefabInstance: {fileID: 1555523161}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1717003465 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7695628008172269512, guid: 48debfd475eb78d4186bc43fe491ff4b, type: 3}
-  m_PrefabInstance: {fileID: 1409313263}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1719309126
+--- !u!1001 &1705499350
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10955,7 +10898,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4759857558059605701, guid: 1229c1219a470584595651b023c13b41, type: 3}
       propertyPath: m_Name
-      value: Beer
+      value: BeerNearCave (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8130088141594221840, guid: 1229c1219a470584595651b023c13b41, type: 3}
       propertyPath: m_LocalScale.x
@@ -10971,11 +10914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8130088141594221840, guid: 1229c1219a470584595651b023c13b41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.0358925
+      value: -2.77
       objectReference: {fileID: 0}
     - target: {fileID: 8130088141594221840, guid: 1229c1219a470584595651b023c13b41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6117141
+      value: 0.82
       objectReference: {fileID: 0}
     - target: {fileID: 8130088141594221840, guid: 1229c1219a470584595651b023c13b41, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11014,10 +10957,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1229c1219a470584595651b023c13b41, type: 3}
---- !u!4 &1719309127 stripped
+--- !u!4 &1717003465 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8130088141594221840, guid: 1229c1219a470584595651b023c13b41, type: 3}
-  m_PrefabInstance: {fileID: 1719309126}
+  m_CorrespondingSourceObject: {fileID: 7695628008172269512, guid: 48debfd475eb78d4186bc43fe491ff4b, type: 3}
+  m_PrefabInstance: {fileID: 1409313263}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1723450225
 PrefabInstance:
@@ -11709,7 +11652,6 @@ SceneRoots:
   - {fileID: 479235690}
   - {fileID: 697447678}
   - {fileID: 1207632567}
-  - {fileID: 1171245091}
   - {fileID: 704172619}
   - {fileID: 682733323}
   - {fileID: 102097763}

@@ -3411,6 +3411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763818196}
   - component: {fileID: 763818197}
+  - component: {fileID: 763818198}
   m_Layer: 0
   m_Name: CastleManager
   m_TagString: Untagged
@@ -3450,6 +3451,22 @@ MonoBehaviour:
   portalDoor: {fileID: 1435158938}
   castleDoor: {fileID: 1473847421}
   castleDoorOpened: {fileID: -8851503531396237167, guid: 6297f2750d90bb642bc7c9a4adf245af, type: 3}
+--- !u!114 &763818198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763818195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652a14e55a1890429d9fd91bea1f9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - You need to defeat the enemies in each floor to climb the tower
 --- !u!1001 &780941313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4509,11 +4526,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2144080401021046877, guid: efeab60fdf5c90244acc15a723d7693a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.93
+      value: 6.37
       objectReference: {fileID: 0}
     - target: {fileID: 2144080401021046877, guid: efeab60fdf5c90244acc15a723d7693a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.16
+      value: -2.43
       objectReference: {fileID: 0}
     - target: {fileID: 2144080401021046877, guid: efeab60fdf5c90244acc15a723d7693a, type: 3}
       propertyPath: m_LocalPosition.z

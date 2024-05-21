@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof (Rigidbody2D))]
 [RequireComponent(typeof (Animator))]
@@ -75,8 +76,11 @@ public class Player : MonoBehaviour
 
 		bool SHOULD_DRINK_BEER = Input.GetKeyUp(KeyCode.Q) && GameManager.Instance.GetBeerCount() > 0;
 		if (SHOULD_DRINK_BEER) {
+			float percentage = 25;
+			float toAdd = GameManager.Instance.GetPlayerMaxHealth() * (percentage / 100);
 			GameManager.Instance.ConsumeBeer();
-			GameManager.Instance.SetPlayerMaxHealth(GameManager.Instance.GetPlayerMaxHealth() * 1.25f);
+			GameManager.Instance.SetPlayerMaxHealth(GameManager.Instance.GetPlayerMaxHealth() + toAdd);
+			GameManager.Instance.SetPlayerHealth(GameManager.Instance.GetPlayerHealth() + toAdd);
 		}
 
 		HandlePlayerAttacks();

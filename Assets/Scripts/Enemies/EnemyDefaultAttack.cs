@@ -23,6 +23,7 @@ public class EnemyDefaultAttack : MonoBehaviour
     }
 
     void Update() {
+        if (GameManager.Instance.IsUserActionsDisabled()) return;
         bool IS_ALLOWED_TO_ATTACK = enemyHunt.GetDistanceBetweenTarget() < attackRange && !enemy.GetIsAttacking(); 
         if (IS_ALLOWED_TO_ATTACK) {
             StartCoroutine(InflictDamage());

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 2
   attackRange: 4.5
-  damage: 8
+  damage: 12
   bullet: {fileID: 7721647235013409727, guid: 9d8fa25be1acf174587bda27f8adb3b7, type: 3}
   launcher: {fileID: 7566548760359280634}
 --- !u!114 &1336617795592119701
@@ -203,6 +203,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f66ce836a93e8d47ac619573ce316d4, type: 3}
   - {fileID: 8300000, guid: b5b263ba33603074a9d0c3a7d2f12498, type: 3}
   - {fileID: 8300000, guid: abfc4ffc25c023646825cd2262c8c83f, type: 3}
+  killDialogue: {fileID: 0}
 --- !u!114 &7617321011910625240
 MonoBehaviour:
   m_ObjectHideFlags: 0

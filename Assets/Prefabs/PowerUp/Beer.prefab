@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5305306990865591454}
   - component: {fileID: 1858897059461779826}
   - component: {fileID: 2247432520957665500}
+  - component: {fileID: 823526795792943203}
+  - component: {fileID: 2810686205943149024}
   m_Layer: 0
   m_Name: Beer
   m_TagString: Untagged
@@ -143,3 +145,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c93db04dc0d34154ea9c39bf9c80823a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &823526795792943203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759857558059605701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c36318e03ddaa6498ab1efe7d9328f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2810686205943149024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759857558059605701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652a14e55a1890429d9fd91bea1f9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - You look like you could use a health boost. Drink this Beer to increase your
+      max health.

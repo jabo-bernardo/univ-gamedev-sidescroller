@@ -1468,6 +1468,68 @@ Transform:
   - {fileID: 1716692231}
   m_Father: {fileID: 861426387}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &825005033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825005036}
+  - component: {fileID: 825005035}
+  - component: {fileID: 825005034}
+  m_Layer: 0
+  m_Name: FirstCaveLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &825005034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825005033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652a14e55a1890429d9fd91bea1f9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - So, this is the cave that the bartender mentioned
+--- !u!114 &825005035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825005033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0815927cc563fb4b9d6133a19deff68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueTrigger: {fileID: 825005034}
+--- !u!4 &825005036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825005033}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.9483542, y: 0.9755651, z: 0.152538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &842449604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1482,7 +1544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459593572395245219, guid: 06e4a29e823e32d4fae97a246bfa5f57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: -15.06
       objectReference: {fileID: 0}
     - target: {fileID: 459593572395245219, guid: 06e4a29e823e32d4fae97a246bfa5f57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4859,3 +4921,4 @@ SceneRoots:
   - {fileID: 2122342681}
   - {fileID: 1219008840}
   - {fileID: 1224278092}
+  - {fileID: 825005036}

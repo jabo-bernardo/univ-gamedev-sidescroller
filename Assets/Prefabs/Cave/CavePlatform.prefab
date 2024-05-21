@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5371389033076423722}
   - component: {fileID: 3048888679911390876}
   - component: {fileID: 312072754631507464}
+  - component: {fileID: 1558958405487290147}
   m_Layer: 0
   m_Name: CavePlatform
   m_TagString: Ground
@@ -143,3 +144,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ad9764c4755e245875806ff2e1ec7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1558958405487290147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3082195181088877843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652a14e55a1890429d9fd91bea1f9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - Strange, this wasn't here before

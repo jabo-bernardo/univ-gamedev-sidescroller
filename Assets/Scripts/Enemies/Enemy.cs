@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof (AudioSource))]
@@ -22,6 +23,9 @@ public class Enemy : MonoBehaviour
 
     [Header("Sound")]
     public  AudioClip[] hitSound;
+
+    [Header("Goblin Specific")]
+    public DialogueTrigger killDialogue;
     private bool isDying;
 
     void Start() {
@@ -33,6 +37,8 @@ public class Enemy : MonoBehaviour
 
     void Update() {
         if (health <= 0) {
+            if (isDying) return;
+            isDying = true;
             if (GameManager.Instance.killTracker.ContainsKey(gameObject.name)) {
                 GameManager.Instance.killTracker[gameObject.name] = GameManager.Instance.killTracker[gameObject.name] + 1;
             } else {
@@ -53,6 +59,20 @@ public class Enemy : MonoBehaviour
             }
         }
         Destroy(gameObject);
+        if (gameObject.name.Contains("Spider")) {
+            if (GameManager.Instance.GetIsFirstGoblinKill()) {
+                StartCoroutine(FirstGoblinKillDialogue());
+            }
+        }
+        if (GameManager.Instance.yoloTracker.ContainsKey(gameObject.name))
+            yield return null;
+        GameManager.Instance.yoloTracker.Add(gameObject.name, true);
+        yield return null;
+    }
+
+    IEnumerator FirstGoblinKillDialogue() {
+        killDialogue.TriggerDialogue();
+        GameManager.Instance.IHaveKilledAGoblin();
         yield return null;
     }
 
@@ -69,7 +89,6 @@ public class Enemy : MonoBehaviour
         health -= damage;
         animator.SetTrigger("isHit");
         int randomHitSound = Random.Range(0, hitSound.Length);
-        Debug.Log(randomHitSound);
         if (hitSound[randomHitSound])
             audioSource.PlayOneShot(hitSound[randomHitSound]);
         if (damageDealer) {

@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3709313692637589564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2724435474013714853}
+  - component: {fileID: 1730748878273949648}
+  m_Layer: 15
+  m_Name: GoblinFirstKillDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2724435474013714853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709313692637589564}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2016801084982071043}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730748878273949648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709313692637589564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652a14e55a1890429d9fd91bea1f9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - I better be careful here
 --- !u!1 &6055385175026407001
 GameObject:
   m_ObjectHideFlags: 0
@@ -18,6 +66,8 @@ GameObject:
   - component: {fileID: 6391808359386673292}
   - component: {fileID: 2232496608641075976}
   - component: {fileID: 8131027382768280578}
+  - component: {fileID: 812331441637091447}
+  - component: {fileID: 97747681088009602}
   m_Layer: 15
   m_Name: Spider
   m_TagString: Untagged
@@ -37,7 +87,8 @@ Transform:
   m_LocalPosition: {x: 14.24, y: -2, z: -0.068796724}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2724435474013714853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2308693987350173173
@@ -183,6 +234,7 @@ MonoBehaviour:
   pearlCount: 3
   hitSound:
   - {fileID: 8300000, guid: c6a62e424e94fd34e8e1fcb24f0c3ca3, type: 3}
+  killDialogue: {fileID: 1730748878273949648}
 --- !u!114 &1683675779797737132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,3 +395,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &812331441637091447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055385175026407001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a9196687a25aa4f801217ac581b7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &97747681088009602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055385175026407001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652a14e55a1890429d9fd91bea1f9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - A goblin.

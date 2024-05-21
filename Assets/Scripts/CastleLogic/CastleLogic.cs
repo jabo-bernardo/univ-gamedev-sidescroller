@@ -8,12 +8,23 @@ public class CastleLogic : MonoBehaviour
     public GameObject portalDoor;
     public SpriteRenderer castleDoor;
     public Sprite castleDoorOpened;
+    private DialogueTrigger dialogueTrigger;
 
-    // Update is called once per frame
+    void Start() {
+        dialogueTrigger = GetComponent<DialogueTrigger>();
+    }
+
     void Update()
     {
-        bool IS_STAGE_BEATEN = true;
+        if (GameManager.Instance.GetIsFirstCastleEntrance()) {
+            if (dialogueTrigger) {
+                dialogueTrigger.TriggerDialogue();
+                GameManager.Instance.IHaveSeenCastle();
+            }
+        }
 
+        bool IS_STAGE_BEATEN = true;
+        Debug.Log(enemiesToKill);
         foreach (GameObject enemy in enemiesToKill) {
             if (enemy) IS_STAGE_BEATEN = false;
         }

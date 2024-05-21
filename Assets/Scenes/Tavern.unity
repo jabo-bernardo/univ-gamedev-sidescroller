@@ -1631,7 +1631,7 @@ MonoBehaviour:
       from all... that.'
     - 'KRISTAN: But they found me. Last week they came... my enemies. I wasn''t strong
       enough, I wasn''t there. They took... took everything.'
-    - 'BARTENDER: I... I''m so damn sorry, Eric.'
+    - 'BARTENDER: I... I''m so damn sorry, Kristan.'
     - 'KRISTAN: Sorry won''t bring them back. Sorry won''t make those bastards pay.
       I''ll hunt them.'
 --- !u!114 &870023692
@@ -4339,7 +4339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5716911051991550539, guid: 56e956575d2f3154b8310fa168a174f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.01
+      value: 9.19
       objectReference: {fileID: 0}
     - target: {fileID: 5716911051991550539, guid: 56e956575d2f3154b8310fa168a174f3, type: 3}
       propertyPath: m_LocalPosition.y

@@ -17,6 +17,7 @@ public class DefaultEnemyHunt : EnemyHuntBase
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.IsUserActionsDisabled()) return;
         if (!target) return;
         distanceBetweenTarget = Vector3.Distance(target.transform.position, transform.position);
 

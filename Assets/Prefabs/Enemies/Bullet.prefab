@@ -308,6 +308,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchForce: 10
-  damage: 25
+  damage: 15
   bulletDecay: 1
   direction: {x: 0, y: 0}

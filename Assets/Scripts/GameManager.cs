@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -39,6 +40,12 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, bool> yoloTracker = new Dictionary<string, bool>();
 
     private bool isGamePaused = false;
+    private bool isFirstBeer = true;
+    private bool isFirstGoblin = true;
+    private bool isFirstCavePlatform = true;
+    private bool isFirstGoblinKill = true;
+    private bool isFirstCaveEntrance = true;
+    private bool isFirstCastleEntrance = true;
 
     void Update() {
         GameObject inGameUi = GameObject.Find("InGameUi");
@@ -161,6 +168,36 @@ public class GameManager : MonoBehaviour
         return GameManager.Instance;
     }
 
+    public GameManager IHaveSeenBeer() {
+        isFirstBeer = false;
+        return GameManager.Instance;
+    } 
+
+    public GameManager IHaveSeenGoblin() {
+        isFirstGoblin = false;
+        return GameManager.Instance;
+    }
+
+    public GameManager IHaveSeenCavePlatform() {
+        isFirstCavePlatform = false;
+        return GameManager.Instance;
+    }
+
+    public GameManager IHaveKilledAGoblin() {
+        isFirstGoblinKill = false;
+        return GameManager.Instance;
+    }
+
+    public GameManager IHaveSeenCave() {
+        isFirstCaveEntrance = false;
+        return GameManager.Instance;
+    }
+
+    public GameManager IHaveSeenCastle() {
+        isFirstCastleEntrance = false;
+        return GameManager.Instance;
+    }
+
     public bool GetHasFirstKey() {
         return hasFirstKey;
     }
@@ -223,6 +260,30 @@ public class GameManager : MonoBehaviour
 
     public bool GetIsGamePaused() {
         return isGamePaused;
+    }
+
+    public bool GetIsFirstBeer() {
+        return isFirstBeer;
+    }
+
+    public bool GetIsFirstGoblin() {
+        return isFirstGoblin;
+    }
+
+    public bool GetIsFirstCavePlatform() {
+        return isFirstCavePlatform;
+    }
+
+    public bool GetIsFirstGoblinKill() {
+        return isFirstGoblinKill;
+    }
+
+    public bool GetIsFirstCaveEntrance() {
+        return isFirstCaveEntrance;
+    }
+
+    public bool GetIsFirstCastleEntrance() {
+        return isFirstCastleEntrance;
     }
 
     void Awake()
