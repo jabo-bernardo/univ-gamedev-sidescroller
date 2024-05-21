@@ -1634,6 +1634,10 @@ MonoBehaviour:
     - 'BARTENDER: I... I''m so damn sorry, Kristan.'
     - 'KRISTAN: Sorry won''t bring them back. Sorry won''t make those bastards pay.
       I''ll hunt them.'
+    - 'BARTENDER: You need to gather your wits, and gather some information. I heard
+      rumors of a cave not far from here...'
+    - 'BARTENDER: ...where some folks have seen strange symbols and markings. Might
+      be nothing, might be something'
 --- !u!114 &870023692
 MonoBehaviour:
   m_ObjectHideFlags: 0
