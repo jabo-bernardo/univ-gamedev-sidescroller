@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     private bool isFirstCastleEntrance = true;
 
     private Vector2 lastCheckpoint;
+    private bool toRespawn;
 
     void Update() {
         GameObject inGameUi = GameObject.Find("InGameUi");
@@ -205,6 +206,11 @@ public class GameManager : MonoBehaviour
         return GameManager.Instance;
     }
 
+    public GameManager SetToRespawn(bool _toRespawn) {
+        toRespawn = _toRespawn;
+        return GameManager.Instance;
+    }
+
     public bool GetHasFirstKey() {
         return hasFirstKey;
     }
@@ -291,6 +297,10 @@ public class GameManager : MonoBehaviour
 
     public bool GetIsFirstCastleEntrance() {
         return isFirstCastleEntrance;
+    }
+
+    public bool IsToRespawn() {
+        return toRespawn;
     }
 
     public Vector2 GetLastCheckpoint() {

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [RequireComponent(typeof (Rigidbody2D))]
 [RequireComponent(typeof (Animator))]
@@ -42,6 +41,7 @@ public class Player : MonoBehaviour
 	public AudioClip walkAudio;
 	public AudioClip jumpAudio;
 	public AudioClip[] dashAudio;
+	public AudioClip deathSound;
 
 	private bool isPrimaryCooldown;
 	private bool isSecondaryCooldown;
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
 	private bool isDashing;
 	private bool isDashInCooldown;
+	private bool isDying;
 
 	void Start() {
 		rigidBody = GetComponent<Rigidbody2D>();
@@ -63,6 +64,12 @@ public class Player : MonoBehaviour
 			transform.position = GameManager.Instance.playerSavedLocationsBeforeTeleport.GetValueOrDefault(SceneManager.GetActiveScene().name);
 		}
 
+		if (GameManager.Instance.GetLastCheckpoint() != null && SceneManager.GetActiveScene().name == "Playground" && GameManager.Instance.IsToRespawn()) {
+			transform.position = GameManager.Instance.GetLastCheckpoint();
+			GameManager.Instance.SetToRespawn(false);
+			GameManager.Instance.EnableUserActions();
+		}
+
 		if (walkAudio) {
 			TIME_BETWEEN_FOOTSTEPS = walkAudio.length;
 		}
@@ -70,7 +77,8 @@ public class Player : MonoBehaviour
 
 	void Update() {
 		bool IS_DEAD = GameManager.Instance.GetPlayerHealth() <= 0;
-		if (IS_DEAD) {
+		if (IS_DEAD && !isDying) {
+			isDying = true;
 			StartCoroutine(KillKristan());
 		}
 
@@ -88,12 +96,22 @@ public class Player : MonoBehaviour
 	}
 
 	IEnumerator KillKristan() {
-		yield return new WaitForSeconds(1f);
-		gameObject.SetActive(false);
+		GameManager.Instance.DisableUserActions();
+		GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+		audioSource.PlayOneShot(deathSound);
+		yield return new WaitForSeconds(2f);
 		GameManager.Instance.SetPlayerHealth(GameManager.Instance.GetPlayerMaxHealth() * 0.5f);
-		Destroy(gameObject);
-		StartCoroutine(FindObjectOfType<LevelLoader>().LoadLevel("Playground"));
-		
+
+		if (SceneManager.GetActiveScene().name != "Playground") {
+			yield return FindObjectOfType<LevelLoader>().LoadLevel("Playground");
+			GameManager.Instance.SetToRespawn(true);
+			Destroy(gameObject);
+		} else {
+			GameManager.Instance.SetToRespawn(true);
+			transform.position = GameManager.Instance.GetLastCheckpoint();
+			GameManager.Instance.SetToRespawn(false);
+			GameManager.Instance.EnableUserActions();
+		}
 	}
 
 	void FixedUpdate() {

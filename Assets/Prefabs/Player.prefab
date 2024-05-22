@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 942382255162009760}
   - component: {fileID: 1886302444705506255}
   - component: {fileID: 6607302053351843120}
+  - component: {fileID: 5558631679312998979}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -590,6 +591,23 @@ MonoBehaviour:
   jumpAudio: {fileID: 8300000, guid: cf3491f1a75730241917a1dbf9d0303d, type: 3}
   dashAudio:
   - {fileID: 8300000, guid: 8d6447a88e851ae46b4ddcad7bc2ce7e, type: 3}
+  deathSound: {fileID: 8300000, guid: e49d6b802afc2984d81ceb2d36ddf84b, type: 3}
+--- !u!114 &5558631679312998979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276909334858629936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b652a14e55a1890429d9fd91bea1f9cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: 
+    sentences:
+    - 
 --- !u!1 &5106661119952916159
 GameObject:
   m_ObjectHideFlags: 0
