@@ -106,6 +106,7 @@ public class Player : MonoBehaviour
 			yield return FindObjectOfType<LevelLoader>().LoadLevel("Playground");
 			GameManager.Instance.SetToRespawn(true);
 			Destroy(gameObject);
+			GetComponent<DialogueTrigger>().TriggerDialogue();
 		} else {
 			GameManager.Instance.SetToRespawn(true);
 			transform.position = GameManager.Instance.GetLastCheckpoint();

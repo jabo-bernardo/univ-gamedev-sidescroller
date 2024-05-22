@@ -607,7 +607,7 @@ MonoBehaviour:
   dialogue:
     name: 
     sentences:
-    - 
+    - Death didn't hold you, you're alive again.
 --- !u!1 &5106661119952916159
 GameObject:
   m_ObjectHideFlags: 0
