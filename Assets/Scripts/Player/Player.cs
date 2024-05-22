@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
 	void Update() {
 		bool IS_DEAD = GameManager.Instance.GetPlayerHealth() <= 0;
 		if (IS_DEAD) {
-			Destroy(gameObject);
+			StartCoroutine(KillKristan());
 		}
 
 		bool SHOULD_DRINK_BEER = Input.GetKeyUp(KeyCode.Q) && GameManager.Instance.GetBeerCount() > 0;
@@ -85,6 +85,15 @@ public class Player : MonoBehaviour
 
 		HandlePlayerAttacks();
 		HandlePlayerControls();
+	}
+
+	IEnumerator KillKristan() {
+		yield return new WaitForSeconds(1f);
+		gameObject.SetActive(false);
+		GameManager.Instance.SetPlayerHealth(GameManager.Instance.GetPlayerMaxHealth() * 0.5f);
+		Destroy(gameObject);
+		StartCoroutine(FindObjectOfType<LevelLoader>().LoadLevel("Playground"));
+		
 	}
 
 	void FixedUpdate() {

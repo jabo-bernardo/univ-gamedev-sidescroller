@@ -3460,16 +3460,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 763818195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f87743d530cae4199970be070a97d8, type: 3}
+  m_Script: {fileID: 11500000, guid: a9d755a4fd4fc3447b23fd7fd4cd16e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesToKill:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  portalDoor: {fileID: 0}
-  castleDoor: {fileID: 0}
-  castleDoorOpened: {fileID: 0}
+  bossEnemy: {fileID: 1456667552}
+  isDying: 0
 --- !u!1001 &880867867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3905,9 +3900,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3194135510196428243, guid: 0b6a36c7f91eeba489d97936014c36ab, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194135510196428243, guid: 0b6a36c7f91eeba489d97936014c36ab, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 796c22ea4f1f40a4b938440ee9a0a62c, type: 3}
+      objectReference: {fileID: 8300000, guid: d4b0ad1fb4f82824aa8703690ed34bca, type: 3}
     - target: {fileID: 5104518765272351052, guid: 0b6a36c7f91eeba489d97936014c36ab, type: 3}
       propertyPath: m_Name
       value: MusicManager
@@ -4259,11 +4258,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7366046076072130017, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
+      propertyPath: health
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
+--- !u!114 &1456667552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7366046076072130017, guid: 8c1dd21973b2972459658462b5f79dbf, type: 3}
+  m_PrefabInstance: {fileID: 1456667551}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0959be166c236545b04d4de9c2f8870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1478110377
 GameObject:
   m_ObjectHideFlags: 0

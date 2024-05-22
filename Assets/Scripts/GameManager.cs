@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     private bool isFirstCaveEntrance = true;
     private bool isFirstCastleEntrance = true;
 
+    private Vector2 lastCheckpoint;
+
     void Update() {
         GameObject inGameUi = GameObject.Find("InGameUi");
         GameObject pauseMenu = null;
@@ -198,6 +200,11 @@ public class GameManager : MonoBehaviour
         return GameManager.Instance;
     }
 
+    public GameManager SetLastCheckpoint(Vector2 _lastCheckpoint) {
+        lastCheckpoint = _lastCheckpoint;
+        return GameManager.Instance;
+    }
+
     public bool GetHasFirstKey() {
         return hasFirstKey;
     }
@@ -286,6 +293,10 @@ public class GameManager : MonoBehaviour
         return isFirstCastleEntrance;
     }
 
+    public Vector2 GetLastCheckpoint() {
+        return lastCheckpoint;
+    }
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -306,6 +317,10 @@ public class GameManager : MonoBehaviour
 
             DontDestroyOnLoad(gameObject);
         }
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 
     
