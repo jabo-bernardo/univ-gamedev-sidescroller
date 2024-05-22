@@ -215,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   attackRange: 1.5
-  damage: 25
+  damage: 2
   slashEffectObject: {fileID: 8557450641946862213, guid: 1dabc12e6288a6043a9b07454bffe982, type: 3}
 --- !u!95 &7007910640016527475
 Animator:

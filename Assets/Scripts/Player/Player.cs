@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 		animator = GetComponent<Animator>();
 		audioSource = GetComponent<AudioSource>();
 
-		if (GameManager.Instance.playerSavedLocationsBeforeTeleport.ContainsKey(SceneManager.GetActiveScene().name)) {
+		if (GameManager.Instance.playerSavedLocationsBeforeTeleport.ContainsKey(SceneManager.GetActiveScene().name) && !SceneManager.GetActiveScene().name.Contains("Castle")) {
 			transform.position = GameManager.Instance.playerSavedLocationsBeforeTeleport.GetValueOrDefault(SceneManager.GetActiveScene().name);
 		}
 
@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
 			GameManager.Instance.SetToRespawn(true);
 			Destroy(gameObject);
 			GetComponent<DialogueTrigger>().TriggerDialogue();
+			GameManager.Instance.EnableUserActions();
 		} else {
 			GameManager.Instance.SetToRespawn(true);
 			transform.position = GameManager.Instance.GetLastCheckpoint();

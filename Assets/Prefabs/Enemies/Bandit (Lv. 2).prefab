@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 2
   attackRange: 4.5
-  damage: 12
+  damage: 8
   bullet: {fileID: 7721647235013409727, guid: 9d8fa25be1acf174587bda27f8adb3b7, type: 3}
   launcher: {fileID: 7566548760359280634}
 --- !u!114 &1336617795592119701
