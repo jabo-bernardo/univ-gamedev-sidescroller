@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        pearlCount = (int) Mathf.Round(health / 50);
+        pearlCount = (int) Mathf.Round(health / 35);
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }

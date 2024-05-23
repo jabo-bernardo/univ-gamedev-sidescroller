@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
 		if (walkAudio) {
 			TIME_BETWEEN_FOOTSTEPS = walkAudio.length;
 		}
+			GameManager.Instance.EnableUserActions();
 	}
 
 	void Update() {
